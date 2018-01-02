@@ -1,0 +1,5 @@
+{
+  "root": "src",
+  "entry-file": "index.html",
+  "port": 7000
+}

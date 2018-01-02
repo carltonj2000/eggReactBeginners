@@ -1,0 +1,12 @@
+{
+  "name": "eggReactBeginners",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "readme": "node ./scripts/mark2html.js"
+  },
+  "dependencies": {
+    "marked": "^0.3.9"
+  }
+}

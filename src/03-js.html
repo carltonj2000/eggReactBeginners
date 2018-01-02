@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>React Beginner 01</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@16.2.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.2.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+    <script type="text/babel">
+    const helloWorld = <div>hello world</div>;
+const message = props => <div>{props.msg}</div>;
+const Message = props => <div>{props.msg}</div>;
+const Message2 = props => <div>{props.children}</div>;
+const e = (
+  <div className="container">
+    <Message2>
+      hi world child contained
+      <Message2>by world child contained</Message2>
+    </Message2>
+    <Message2>hi world child within</Message2>
+    <Message2 children="hi world child" />
+    <Message msg="hi world" />
+    <Message msg="bye world" />
+    {/*capital first letter in jsx is need to use the variable defined above*/}
+    <message msg="bye world" />
+    {React.createElement(message, { msg: "hello World msg" })}
+    {message({ msg: "hello World" })}
+    {message({ msg: "goodbye World" })}
+    {helloWorld}
+  </div>
+);
+ReactDOM.render(e, document.getElementById("root"));
+</script>
+</body>
+</html>

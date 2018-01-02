@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>React Beginner 01</title>
+  </head>
+  <body>
+    <div id="root4"></div>
+    <div id="root3"></div>
+    <div id="root2"></div>
+    <div id="root1"></div>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@16.2.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.2.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+    <script type="text/babel">
+const props4 = { className: 'container', children: 'Hello World 4'};
+const e4 = <div className='my-className' {...props4} children='hw4'> hi there 4</div>;
+ReactDOM.render(e4, document.getElementById("root4"));
+
+const props = { className: 'container', children: 'Hello World 3'};
+const element3 = <div {...props}/>;
+ReactDOM.render(element3, document.getElementById("root3"));
+
+const content = 'Hello World 2';
+const myClassName = 'container';
+const element2 = <div className={myClassName + "_hi_there"}>{(() => content)()}</div>;
+const rootElement2 = document.getElementById("root2");
+ReactDOM.render(element2, rootElement2);
+
+const elm = React.createElement(
+  "div",
+  { className: "container", id: "1" },
+  "Hi World",
+  "bye world"
+);
+console.log(elm);
+const rootElement = document.getElementById("root");
+ReactDOM.render(elm, rootElement);
+
+const rootElement1 = document.getElementById("root1");
+const element = document.createElement("div");
+element.textContent = "Hello World";
+element.className = "container";
+rootElement1.appendChild(element);
+</script>
+</body>
+</html>

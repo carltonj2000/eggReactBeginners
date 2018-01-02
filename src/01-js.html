@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>React Beginner 01</title>
+  </head>
+  <body>
+    <div id="root1"></div>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@16.2.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.2.0/umd/react-dom.development.js"></script>
+    <script>
+    const rootElement1 = document.getElementById("root1");
+const element = document.createElement("div");
+element.textContent = "Hello World";
+element.className = "container";
+rootElement1.appendChild(element);
+
+const elm = React.createElement(
+  "div",
+  { className: "container", id: "1" },
+  "Hi World",
+  "bye world"
+);
+console.log(elm);
+const rootElement = document.getElementById("root");
+ReactDOM.render(elm, rootElement);
+</script>
+  </body>
+</html>
