@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>React Beginner 04</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@16.2.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.2.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/prop-types@15.6.0/prop-types.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+    <script type="text/babel">
+    const SayHello = props => (
+  <div>
+    hello {props.firstName} {props.middleI} {props.lastName}
+  </div>
+);
+const PropTypesMine = {
+  string(props, propName, componentName) {
+    if (typeof props[propName] !== "string") {
+      return new Error(
+        `Entered ${propName} of type ${typeof props[
+          propName
+        ]} but needed type string`
+      );
+    }
+  }
+};
+SayHello.propTypes = {
+  firstName(props, propName, componentName) {
+    if (typeof props[propName] !== "string") {
+      return new Error(
+        `Entered ${propName} of type ${typeof props[
+          propName
+        ]} but needed type string`
+      );
+    }
+  },
+  lastName: PropTypesMine.string,
+  /* PropTypes from the react implementation */
+  middleI: PropTypes.string.isRequired
+};
+class SayHi extends React.Component {
+  static propTypes = {
+    firstName: PropTypes.string.isRequired,
+    lastName: PropTypes.string.isRequired,
+    middleI: PropTypes.string.isRequired
+  };
+  render() {
+    const { firstName, middleI, lastName } = this.props;
+    return (
+      <div>
+        hi {firstName} {middleI} {lastName}
+      </div>
+    );
+  }
+}
+ReactDOM.render(
+  <div>
+    <SayHello firstName="Carlton" lastName="Joseph" middleI="C" />
+    <SayHi firstName="Carlton" lastName="Joseph" middleI="C" />
+  </div>,
+  document.getElementById("root")
+);
+</script>
+</body>
+</html>
