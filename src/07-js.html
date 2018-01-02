@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>React Beginner 05</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@16.2.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.2.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/prop-types@15.6.0/prop-types.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+<style>
+.box {
+  border: 1px solid #333;
+}
+.box--small {
+  width: 60px;
+  height: 60px;
+}
+.box--medium {
+  width: 100px;
+  height: 100px;
+}
+</style>
+    <script type="text/babel">
+console.log("ignore for prettier");
+function Box3({ style, size, ...rest }) {
+  const sizeClassName = size ? `box--${size}` : "";
+  return (
+    <div
+      className={`box ${sizeClassName}`}
+      {...rest}
+      style={{ paddingLeft: 20, ...style }}
+    >
+      box
+    </div>
+  );
+}
+function Box2({ style, className = "", ...rest }) {
+  return (
+    <div
+      className={`box ${className}`}
+      {...rest}
+      style={{ paddingLeft: 20, ...style }}
+    >
+      box
+    </div>
+  );
+}
+function Box(props) {
+  return (
+    <div className="box box--small" style={{ paddingLeft: 20 }} {...props}>
+      box
+    </div>
+  );
+}
+console.log("ignore for prettier");
+const element = (
+  <div>
+    <div className="box--small" style={{ background: "red", width: 300 }}>
+      box
+    </div>
+    {/* loose style below*/}
+    <Box style={{ background: "pink" }} />
+    {/* keep style below*/}
+    <Box2 style={{ background: "yellow" }} className="box--small" />
+    <Box3 size="medium" />
+  </div>
+);
+ReactDOM.render(element, document.getElementById("root"));
+</script>
+  </body>
+</html>
