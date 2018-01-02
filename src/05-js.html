@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>React Beginner 05</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@16.2.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.2.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/prop-types@15.6.0/prop-types.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+    <script type="text/babel">
+    console.log("ignore for prettier");
+function Message({ message }) {
+  if (!message) return <div>No Message</div>;
+  return <div>message</div>;
+}
+function Message2({ message }) {
+  return (
+    <div> {message ? <div>{message} 2</div> : <div>No message 2</div>}</div>
+  );
+}
+ReactDOM.render(
+  <div>
+    <Message2 />
+    <Message2 message="hi" />
+    <Message2 message={null} />
+    <Message message={null} />
+  </div>,
+  document.getElementById("root")
+);
+</script>
+</body>
+</html>
