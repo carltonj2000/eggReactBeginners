@@ -12,3 +12,4 @@ package is use to server the _src_ directory.
 * 3 - [Create Custom React Components](03-js.html)
 * 4 - [Validate Custom React Component Props with PropTypes](04-js.html)
 * 5 - [Conditionally Render A React Component](05-js.html)
+* 6 - [Rerender a React Application](06-js.html)
