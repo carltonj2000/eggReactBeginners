@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>React Beginner 05</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@16.2.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.2.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/prop-types@15.6.0/prop-types.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+    <script type="text/babel">
+const state = {eventCount: 0, username: ''};
+class StopWatch extends React.Component {
+  state = {lapse: 0, running: false};
+  runClick = () => {
+    this.setState(state => {
+      if (state.running) {
+        clearInterval(this.timer);
+      } else {
+        const startTime = Date.now() - this.state.lapse;
+        this.timer = setInterval(() => {
+          this.setState({lapse: Date.now() - startTime});
+        })
+      }
+      return {running: !state.running};
+    })
+  }
+  clearClick = () => {
+    clearInterval(this.timer);
+    this.setState({lapse: 0, running: false});
+  }
+  render() {
+    const {running, lapse} = this.state;
+    return (
+      <div>
+        <label>{lapse} ms</label>
+        <button onClick={this.runClick}>{running ? 'Stop' : 'Start'}</button>
+        <button onClick={this.clearClick}>Clear</button>
+      </div>
+    )
+  }
+}
+const element = <div><StopWatch /></div>
+function renderApp() {
+  ReactDOM.render(element, document.getElementById("root"));
+}
+renderApp();
+</script>
+  </body>
+</html>
