@@ -18,3 +18,4 @@ package is use to server the _src_ directory.
 * 9 - [Use Component State with React](09-js.html)
 * 10 - [Stop Memory Leaks with componentWillUnmount Lifecycle Method in React](10-js.html)
 * 11 - [Use Class Components with React](11-js.html)
+* 12 - [Manipulate the DOM with React refs](12-js.html)
